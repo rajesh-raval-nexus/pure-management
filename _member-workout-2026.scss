@@ -1,4 +1,5 @@
-body.page-template-2025-report-template {
+body.page-template-2025-report-template,
+body.page-template-2025-report-new-template {
     background-color: #fff;
     .header {
         background: rgba(0, 0, 0, 0);
@@ -14,16 +15,6 @@ body.page-template-2025-report-template {
             padding 0.3s ease,
             box-shadow 0.3s ease,
             transform 0.3s ease;
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(0px);
-            opacity: 0;
-            transition: opacity 0.35s ease, backdrop-filter 0.35s ease;
-            z-index: -1;
-        }
         &--member {
             &__menu {
                 order: 3;
@@ -47,15 +38,11 @@ body.page-template-2025-report-template {
         &.header-sticky {
             padding-top: 10px;
             padding-bottom: 10px;
-            backdrop-filter: blur(8px);
+
             background: rgba(255, 255, 255, 0.9);
-        }
-        &.header-sticky {
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            &::before {
-                background: rgba(255, 255, 255, 0.9);
+            @media only screen and (min-width: 905px) {
                 backdrop-filter: blur(8px);
-                opacity: 1;
             }
         }
     }
@@ -64,33 +51,33 @@ body.page-template-2025-report-template {
     &-1320 {
         .container {
             width: 100%;
-            padding-right: 12px;
-            padding-left: 12px;
+            padding-right: 15px;
+            padding-left: 15px;
             margin-right: auto;
             margin-left: auto;
 
             /* ≥576px */
-            @media (min-width: 576px) {
-                max-width: 540px;
-            }
+            //@media only screen and (min-width: 576px) {
+            //     max-width: 540px;
+            // }
 
             /* ≥768px */
-            @media (min-width: 768px) {
-                max-width: 720px;
-            }
+            //@media only screen and (min-width: 768px) {
+            //     max-width: 720px;
+            // }
 
             /* ≥992px */
-            @media (min-width: 992px) {
-                max-width: 960px;
-            }
+            //@media only screen and (min-width: 992px) {
+            //     max-width: 960px;
+            // }
 
             /* ≥1200px */
-            @media (min-width: 1200px) {
-                max-width: 1140px;
-            }
+            //@media only screen and (min-width: 1200px) {
+            //     max-width: 1140px;
+            // }
 
             /* ≥1400px */
-            @media (min-width: 1400px) {
+            @media only screen and (min-width: 1400px) {
                 max-width: 1320px;
             }
         }
@@ -104,6 +91,9 @@ body.page-template-2025-report-template {
         position: relative;
         color: #000;
         z-index: 1;
+        @media only screen and (max-width: 767px) {
+            padding: 160px 0 200px;
+        }
         &::before {
             content: "";
             position: absolute;
@@ -113,10 +103,18 @@ body.page-template-2025-report-template {
             height: 842px;
             background: img("workout-2026/hero-bg-shape.png") no-repeat center center;
             z-index: -2;
+            @media only screen and (max-width: 767px) {
+                padding: 160px 0 200px;
+            }
         }
         .desc {
             &-text {
                 max-width: 718px;
+            }
+        }
+        .hexagon {
+            @media only screen and (max-width: 767px) {
+                width: 100px;
             }
         }
     }
@@ -164,6 +162,12 @@ body.page-template-2025-report-template {
 .py {
     &-80 {
         padding: 80px 0;
+        @media only screen and (max-width: 991px) {
+            padding: 60px 0;
+        }
+        @media only screen and (max-width: 767px) {
+            padding: 45px 0;
+        }
     }
 }
 .font {
@@ -242,6 +246,12 @@ body.page-template-2025-report-template {
         position: relative;
         z-index: 1;
         margin-bottom: 80px;
+        @media only screen and (max-width: 991px) {
+            margin-bottom: 60px;
+        }
+        @media only screen and (max-width: 767px) {
+            margin-bottom: 45px;
+        }
     }
     &-inner {
         margin-top: -205px;
@@ -256,10 +266,17 @@ body.page-template-2025-report-template {
         position: relative;
         margin-right: 15px;
         margin-left: 15px;
-        @media (max-width: 980px) {
+        @media only screen and (max-width: 1025px) {
+            padding: 30px 30px 0 0;
+        }
+        @media only screen and (max-width: 991px) {
             flex-direction: column;
             align-items: center;
-            padding: 34px;
+            padding: 30px;
+        }
+        @media only screen and (max-width: 767px) {
+            border-radius: 30px;
+            padding: 0 20px 20px;
         }
         .hex {
             &-pink {
@@ -267,6 +284,9 @@ body.page-template-2025-report-template {
                 left: -60px;
                 animation-duration: 15s;
                 animation-direction: reverse;
+                @media only screen and (max-width: 767px) {
+                    width: 100px;
+                }
             }
         }
     }
@@ -303,10 +323,13 @@ body.page-template-2025-report-template {
         gap: 22px;
         margin-top: 30px;
         padding-bottom: 80px;
-        @media (max-width: 980px) {
+        @media only screen and (max-width: 1025px) {
+            padding-bottom: 0px;
+        }
+        @media only screen and (max-width: 991px) {
             grid-template-columns: repeat(2, 1fr);
         }
-        @media (max-width: 675px) {
+        @media only screen and (max-width: 675px) {
             grid-template-columns: 1fr;
         }
     }
@@ -342,7 +365,6 @@ body.page-template-2025-report-template {
 .active {
     &-hours {
         background-color: rgba(219, 219, 219, 0.24);
-        padding: 80px 0;
         position: relative;
         &::before,
         &::after {
@@ -367,10 +389,19 @@ body.page-template-2025-report-template {
             &.hex {
                 &-teal {
                     top: -60px;
+                    @media only screen and (max-width: 767px) {
+                        right: -60px;
+                        left: auto;
+                    }
                 }
                 &-pink {
                     width: 113px;
                     bottom: -60px;
+                    @media only screen and (max-width: 767px) {
+                        bottom: -50px;
+                        left: -50px;
+                        right: auto;
+                    }
                 }
             }
         }
@@ -380,9 +411,21 @@ body.page-template-2025-report-template {
 .pill {
     &-stats {
         display: flex;
-        gap: 100px;
         justify-content: center;
-        align-items: flex-end;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        @media only screen and (max-width: 767px) {
+            gap: 30px;
+        }
+    }
+    &-item {
+        width: 30%;
+        @media only screen and (max-width: 991px) {
+            width: 33%;
+        }
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+        }
     }
     &-wrap {
         width: 145px;
@@ -451,6 +494,9 @@ body.page-template-2025-report-template {
                 position: relative;
                 border-radius: 40px;
                 overflow: hidden;
+                @media only screen and (max-width: 767px) {
+                    border-radius: 20px;
+                }
                 .month {
                     &-info {
                         z-index: 1;
@@ -490,6 +536,10 @@ body.page-template-2025-report-template {
         background: rgba(255, 255, 255, 0.5);
         border-radius: 24px;
         padding: 30px;
+        @media only screen and (max-width: 991px) {
+            padding: 20px;
+            backdrop-filter: blur(2px);
+        }
     }
     &-card {
         background: rgba(255, 255, 255, 0.4);
@@ -506,6 +556,15 @@ body.page-template-2025-report-template {
                 font-size: clamp(1.125rem, .99rem + .32vw, 1.25rem);
                 line-height: clamp(1.5625rem, 1.36rem + .48vw, 1.75rem);
                 font-weight: 700;
+                svg {
+                    margin-top: -5px;
+                    &.up-arrow {
+                        transform: rotate(180deg);
+                    }
+                    @media screen and (max-width: 767px) {
+                        margin-top: -5px;
+                    }
+                }
             }
         }
     }
@@ -516,6 +575,16 @@ body.page-template-2025-report-template {
         overflow: hidden;
         width: fit-content;
         margin-left: auto;
+        @media only screen and (max-width: 991px) {
+            margin: 0 auto;
+        }
+        @media only screen and (max-width: 767px) {
+            border-radius: 16px;
+        }
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
     }
 }
 .groupf {
@@ -526,6 +595,7 @@ body.page-template-2025-report-template {
 .top {
     &-teachers {
         position: relative;
+        overflow: hidden;
         .hexagon {
             &.top-center {
                 left: 0;
@@ -549,6 +619,10 @@ body.page-template-2025-report-template {
         flex-direction: column;
         justify-content: space-between;
         position: relative;
+        overflow: hidden;
+        @media only screen and (max-width: 1025px) {
+            height: 500px;
+        }
         &:nth-child(2) {
             height: 450px;
             background-color: #14E1DC80;
@@ -565,7 +639,7 @@ body.page-template-2025-report-template {
             opacity: 0.3;
             z-index: 1;
             &.hex-right {
-                right: 0;
+                right: -40px;
             }
             &.hex-left {
                 left: 0;
@@ -606,11 +680,20 @@ body.page-template-2025-report-template {
         background-color: #fff;
         border-radius: 24px;
         padding: 25px;
+        @media only screen and (max-width: 767px) {
+            border-radius: 20px;
+            padding: 20px;
+        }
         .hexagon {
             width: 73px;
             top: 13px;
             right: 24px;
             z-index: 1;
+            @media only screen and (max-width: 767px) {
+                width: 50px;
+                top: -10px;
+                right: 0;
+            }
         }
     }
     &-card {
@@ -644,6 +727,17 @@ body.page-template-2025-report-template {
             border-radius: 24px;
             position: relative;
             overflow: hidden;
+            @media only screen and (max-width: 1025px) {
+                padding: 40px;
+            }
+            @media only screen and (max-width: 991px) {
+                padding: 30px;
+            }
+            @media only screen and (max-width: 767px) {
+                flex-direction: column;
+                padding: 50px 20px 20px;
+                border-radius: 16px;
+            }
             &.bg-teal-16 {
                 background: rgba(20, 225, 220, 0.16);
             }
@@ -655,22 +749,34 @@ body.page-template-2025-report-template {
             }
             .title-h2 {
                 text-transform: capitalize;
-                font-size: 40px;
-                line-height: 45px;
+                font-size: clamp(1.75rem, 0.94rem + 1.92vw, 2.5rem);
+                line-height: clamp(2.0625rem, 1.2525rem + 1.92vw, 2.8125rem);
             }
             .hexagon {
                 width: 113px;
+                @media only screen and (max-width: 767px) {
+                    width: 75px;
+                }
                 &.btm-center {
                     left: 0;
                     right: 0;
                     margin: 0 auto;
                     bottom: -56px;
+                    @media only screen and (max-width: 767px) {
+                        bottom: -35px;
+                        left: auto;
+                        right: 30px;
+                    }
                 }
                 &.btm-right {
                     right: 122px;
                     bottom: -56px;
+                    @media only screen and (max-width: 767px) {
+                        bottom: -35px;
+                        left: auto;
+                        right: 30px;
+                    }
                 }
-
             }
         }
         &-desc {
@@ -678,6 +784,9 @@ body.page-template-2025-report-template {
             line-height: 28px;
             color: #4C4C4C;
             margin-bottom: 40px;
+            @media only screen and (max-width: 767px) {
+                margin-bottom: 24px;
+            }
         }
         &-btn {
             display: flex;
@@ -725,6 +834,10 @@ body.page-template-2025-report-template {
             flex: 0 0 300px;
             border-radius: 60px 4px 4px 4px;
             position: relative;
+            @media only screen and (max-width: 767px) {
+                flex: 0 0 0;
+                border-radius: 30px 4px 4px 4px;
+            }
             .hexagon {
                 top: -30px;
                 left: -30px;
@@ -732,12 +845,23 @@ body.page-template-2025-report-template {
                 img {
                     border-radius: 0;
                 }
+                @media only screen and (max-width: 767px) {
+                    width: 75px;
+                }
             }
             img {
                 border-radius: 60px 4px 4px 4px;
                 max-width: 100%;
                 height: auto;
                 object-fit: contain;
+                @media only screen and (max-width: 767px) {
+                    border-radius: 30px 4px 4px 4px;
+                }
+            }
+        }
+        &-content {
+            @media only screen and (max-width: 767px) {
+                order: 2;
             }
         }
     }
