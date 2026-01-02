@@ -137,7 +137,7 @@ if($everything_is_valid){
     $workout = get_field("hero_banner", $page_id);
     $lan_title = $workout['title'];
     // $title = ($lan_title[$language]) ? $lan_title[$language] : $lan_title['en'];
-    $title = ($current_language == 'en') ? 'Your 2025 PURE Holistic Wellness Wrapped' : 'PURE身心旅程 2025年度回顧';
+    $title = ($current_language == 'en') ? 'Your 2025 Pure Holistic<br>Wellness Wrapped' : 'PURE身心旅程<br>2025年度回顧';
 
     $lan_desc = $workout['short_description'];
     $sdescription = ($lan_desc[$language]) ? $lan_desc[$language] : $lan_desc['en'];
@@ -155,16 +155,17 @@ if($everything_is_valid){
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 text-lg-start text-center mb-5 mb-lg-0">
+                <?php if (!empty($title)) { ?>
                 <h1 class="title-h1 mb-4">
-                    Your 2025 Pure Holistic<br>
-                    Wellness Wrapped
+                    <?php echo $title; ?>                    
                 </h1>
+                <?php } ?>
 
+                <?php if (!empty($sdescription)) { ?>
                 <p class="desc-text">
-                    Saluting your year of movement. See how far you've come on your PURE journey—track your progress,
-                    celebrate achievements, and get inspired to smash many more milestones ahead!
-                    This is how we Turn Life ON!
+                    <?php echo $sdescription; ?>
                 </p>
+                <?php } ?>
             </div>
             <div class="col-lg-5 position-relative text-center">
                 <img src="<?= get_image_url('workout-2026/beautiful-sportive-girl.webp') ?>" class="img-fluid">
@@ -244,13 +245,7 @@ if($everything_is_valid){
                 <div class="pill-item">
                     <div class="pill-wrap">
                         <div class="pill-fill" style="--fill:16%;">
-                            <span class="wave">
-                                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                                    <path
-                                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                                        fill="#19e6dd"></path>
-                                </svg>
-                            </span>
+                            <span class="wave"></span>
                         </div>
                     </div>
                     <p class="title-h3 mt-3 mb-2">Morning (6–9am)</p>
@@ -260,13 +255,7 @@ if($everything_is_valid){
                 <div class="pill-item">
                     <div class="pill-wrap">
                         <div class="pill-fill full" style="--fill:100%;">
-                            <span class="wave">
-                                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                                    <path
-                                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                                        fill="#19e6dd"></path>
-                                </svg>
-                            </span>
+                            <span class="wave"></span>
                         </div>
                     </div>
                     <p class="title-h3 mt-3 mb-2">Daytime (9am–5pm)</p>
@@ -276,13 +265,7 @@ if($everything_is_valid){
                 <div class="pill-item">
                     <div class="pill-wrap">
                         <div class="pill-fill" style="--fill:24%;">
-                            <span class="wave">
-                                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                                    <path
-                                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                                        fill="#19e6dd"></path>
-                                </svg>
-                            </span>
+                            <span class="wave"></span>
                         </div>
                     </div>
                     <p class="title-h3 mt-3 mb-2">Evening / Night (after 5pm)</p>
@@ -381,7 +364,7 @@ if($everything_is_valid){
     </div>
 </section>
 
-<section class="top-teachers py-80 pb-0">
+<section class="cmw-1320 top-teachers py-80 pb-0">
     <span class="hexagon top-center">
         <img src="<?= get_image_url('workout-2026/hexagon-teal.svg') ?>" class="img-fluid">
     </span>
@@ -501,7 +484,7 @@ if($everything_is_valid){
         </div>
     </div>
 </section>
-<section class="top-teachers py-80 pb-0">
+<section class="cmw-1320 top-teachers py-80 pb-0">
     <span class="hexagon top-center">
         <img src="<?= get_image_url('workout-2026/hexagon-pink.svg') ?>" class="img-fluid">
     </span>
@@ -610,7 +593,7 @@ if($everything_is_valid){
         </div>
     </div>
 </section>
-<section class="top-teachers py-80 pb-0">
+<section class="cmw-1320 top-teachers py-80 pb-0">
     <span class="hexagon top-center">
         <img src="<?= get_image_url('workout-2026/hexagon-purple.svg') ?>" class="img-fluid">
     </span>
@@ -2269,6 +2252,33 @@ document.addEventListener("DOMContentLoaded", function() {
             header.classList.remove("header-sticky");
         }
     });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const section = document.querySelector(".active-hours");
+    const fills = document.querySelectorAll(".pill-fill");
+
+    if (!section || !fills.length) return;
+
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+
+                    fills.forEach(fill => {
+                        const target = fill.style.getPropertyValue("--fill");
+                        fill.style.height = target;
+                    });
+
+                    observer.disconnect(); //
+                }
+            });
+        }, {
+            threshold: 0.35
+        }
+    );
+
+    observer.observe(section);
 });
 
 const modal = document.getElementById('share-modal');

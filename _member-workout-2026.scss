@@ -254,6 +254,8 @@ body.page-template-2025-report-template {
         display: flex;
         gap: 30px;
         position: relative;
+        margin-right: 15px;
+        margin-left: 15px;
         @media (max-width: 980px) {
             flex-direction: column;
             align-items: center;
@@ -395,18 +397,41 @@ body.page-template-2025-report-template {
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: var(--fill);
+        height: 0;
+        transition: height 2.4s ease-in-out;
         background: #19e6dd;
         .wave {
+            // position: absolute;
+            // top: -24px;
+            // left: 0;
+            // width: 200%;
+            // height: 24px;
+            // animation: waveMove 3s linear infinite;
+            // will-change: transform;
+
+            background-image: img("workout-2026/wave-new.svg");
+            background-repeat: repeat-x;
+            background-size: 500px auto;
+            background-position: bottom;
             position: absolute;
-            top: -23px;
-            left: -100%;
-            width: 200%;
-            animation: waveMove 4s linear infinite;
+            top: -29px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            animation: wave 9s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            z-index: 1;
         }
-        &.full {
-            height: 100%;
-        }
+        // &.full {
+        //     height: 100%;
+        // }
+    }
+}
+@keyframes wave {
+    0% {
+        background-position-x: 0%;
+    }
+    100% {
+        background-position-x: -500px;
     }
 }
 /* wave animation */
@@ -415,7 +440,7 @@ body.page-template-2025-report-template {
         transform: translateX(0);
     }
     to {
-        transform: translateX(50%);
+        transform: translateX(-500px);
     }
 }
 
